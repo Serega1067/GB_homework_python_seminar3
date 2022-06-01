@@ -39,6 +39,7 @@ print(f"Ответ: {result}")
 [2, 3, 5, 6] => [12, 15]
 '''
 
+'''
 print("Напишим программу, которая найдёт произведение пар чисел списка")
 list_input = list(map(int, input(
                   "Введите через пробел список из целых чисел:\n"
@@ -53,11 +54,37 @@ def product_pairs_numbers(arg_list_input):
 
 result = product_pairs_numbers(list_input)
 print("Ответ: {}".format(result))
+'''
 
 '''
-Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
+Задача 3.
+Задайте список из вещественных чисел. Напишите программу, которая 
+найдёт разницу между максимальным и минимальным значением дробной 
+части элементов.
 
 Пример:
 
 [1.1, 1.2, 3.1, 5, 10.01] => 0.19
 '''
+
+print("Найдём разницу между максимальным и минимальным значением "
+      "дробной части элементов")
+list_input = [1.1, 1.2, 3.1, 5, 10.01]
+print(f"Заданный список: {list_input}")
+
+def finding_difference(arg_list):
+    min_elem = arg_list[0] * 100 % 100
+    max_elem = arg_list[0] * 100 % 100
+    for i in range(1, len(arg_list)):
+        if (arg_list[i] * 100 % 100) != 0 and (
+            arg_list[i] * 100 % 100) < min_elem:
+            min_elem = arg_list[i] * 100 % 100
+        elif (arg_list[i] * 100 % 100) != 0 and (
+              arg_list[i] * 100 % 100) > max_elem:
+            max_elem = arg_list[i] * 100 % 100
+    result = (max_elem - min_elem) / 100
+    print(f"Максимум: {max_elem / 100}, минимум: {min_elem / 100}")
+    return result
+
+result_difference = finding_difference(list_input)
+print(f"Ответ: {result_difference}")
